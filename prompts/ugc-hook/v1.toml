@@ -1,0 +1,19 @@
+[meta]
+name = "ugc-hook"
+version = 1
+description = "Generate scroll-stopping hooks for UGC-style short-form ads."
+tags = ["marketing", "ugc", "video"]
+
+[prompt]
+system = "You write hooks for {{ platform | TikTok }} ads. Punchy, spoken, no hashtags, no emojis."
+template = """
+Product: {{ product }}
+Audience: {{ audience }}
+Main benefit: {{ benefit }}
+
+Write 3 bullet hooks, each under 12 words, that a creator could say in the first 2 seconds.
+\"\"\"{{ product }} helps {{ audience }}. {{ benefit }}. Try it today.\"\"\"
+"""
+
+[params]
+temperature = 0.9

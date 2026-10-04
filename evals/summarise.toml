@@ -1,0 +1,33 @@
+[suite]
+name = "summarise-regression"
+prompt = "summarise"
+threshold = 0.75
+
+[[rubric]]
+type = "max_words"
+value = 40
+weight = 2
+
+[[rubric]]
+type = "min_words"
+value = 8
+
+[[rubric]]
+type = "not_contains"
+value = ["As an AI", "I cannot"]
+label = "no refusals / AI-speak"
+
+[[cases]]
+id = "studio-launch"
+vars = { text = "Hasenix, a London studio, launched an AI video service in March 2026. It produces UGC-style ads for e-commerce brands in under 48 hours. Early clients report a 32% lift in click-through rate. The team plans to add multilingual voiceovers next quarter, alongside a self-serve brief builder for small shops." }
+checks = [{ type = "contains", value = ["London", "48 hours"], weight = 2 }]
+
+[[cases]]
+id = "cafe-news"
+vars = { text = "A new cafe opened on Brick Lane serving Yemeni coffee and pastries. Opening hours are 7am to 7pm every day. The owners say they want a calm space for students and remote workers, with fast Wi-Fi and plenty of sockets. A loyalty card gives every tenth drink free." }
+checks = [{ type = "contains", value = "Brick Lane" }]
+
+[[cases]]
+id = "long-report"
+vars = { text = "Quarterly revenue rose 18 percent to 2.4 million pounds, driven by subscription growth in the UK and the UAE, while churn fell to 3 percent after the onboarding redesign shipped in July and support response times dropped to under two hours across all channels including chat, email, and phone for every customer tier including enterprise accounts and the new starter plan that launched mid-quarter with promotional pricing for annual commitments." }
+checks = [{ type = "contains", value = "18 percent" }]

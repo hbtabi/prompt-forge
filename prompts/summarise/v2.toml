@@ -1,0 +1,21 @@
+[meta]
+name = "summarise"
+version = 2
+description = "Summarise text for a busy reader, with a hard word limit."
+tags = ["summarisation"]
+
+[prompt]
+system = "You are a precise editor. You never invent facts and you write in {{ locale | British English }}."
+template = """
+Summarise the text below for {{ audience }} in {{ max_words }} words or fewer.
+Keep names, numbers and places exactly as written.
+
+\"\"\"{{ text }}\"\"\"
+"""
+
+[defaults]
+audience = "a busy founder"
+max_words = "40"
+
+[params]
+temperature = 0.2

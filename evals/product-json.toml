@@ -1,0 +1,26 @@
+[suite]
+name = "product-extraction"
+prompt = "product-json"
+threshold = 0.9
+
+[[rubric]]
+type = "json_valid"
+weight = 2
+
+[[rubric]]
+type = "json_keys"
+value = ["name", "price", "category", "summary"]
+weight = 2
+
+[[rubric]]
+type = "not_contains"
+value = "```"
+label = "no code fences"
+
+[[cases]]
+id = "headphones"
+vars = { listing = "Aero Buds Pro. Wireless noise-cancelling earbuds. Now £89. 30-hour battery with the charging case." }
+
+[[cases]]
+id = "candle"
+vars = { listing = "Fig & Cedar soy candle, hand-poured in Hackney. £24. Burns for 50 hours." }

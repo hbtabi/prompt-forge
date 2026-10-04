@@ -1,0 +1,16 @@
+[meta]
+name = "product-json"
+version = 1
+description = "Extract structured product data as strict JSON."
+tags = ["extraction", "json"]
+
+[prompt]
+system = "You extract data. Reply with JSON only, no prose, no code fences."
+template = """
+Extract product info from the listing and return JSON with keys: name, price, category, summary
+
+<text>{{ listing }}</text>
+"""
+
+[params]
+temperature = 0

@@ -1,0 +1,11 @@
+[meta]
+name = "summarise"
+version = 1
+description = "Summarise a block of text."
+tags = ["summarisation"]
+
+[prompt]
+template = """
+Summarise this:
+\"\"\"{{ text }}\"\"\"
+"""

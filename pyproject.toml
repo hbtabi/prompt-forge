@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-forge"
+version = "0.1.0"
+description = "Versioned prompt templates and a rubric-based evaluation harness for LLM apps. Offline-first."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Mohammed Hassan bin Tayyeb", email = "hasaantayyb1@gmail.com" }]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["prompt-engineering", "llm", "evaluation", "openai", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+promptforge = "promptforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
